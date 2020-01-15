@@ -23,7 +23,7 @@
                                                         {{event.date}}
                                                 </div>
                                                 <div class="div-table-col-2">
-                                                        {{eventTypes[event.eventType-1].type}}
+                                                        {{this.getEventType(event.eventType).type}}
                                                 </div>
                                                 <div class="edit-delete-buttons">
                                                         <button id="edit-button" (click) = "showEdit(event)">Edit</button>
@@ -32,6 +32,11 @@
                                         </div>
                                 </div>
                         </div>
+                </div>
+                <div>
+                        <button *ngIf="this.minPage != this.currentPage" (click)="prevPage()">Prev</button>
+                        <span>{{this.currentPage}}</span>
+                        <button *ngIf="this.maxPage != this.currentPage"  (click)="nextPage()">Next</button>
                 </div>
         </div>
 

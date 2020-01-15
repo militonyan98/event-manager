@@ -20,8 +20,13 @@ export class BackendConnectService {
     return this.http.post<EventModel>(this.getEndpoint('events'), event, {headers: this.getTokenHeader()});
   }
 
-  getEvent(){
-    return this.http.get<EventModel[]>(this.getEndpoint('events'), {headers: this.getTokenHeader()});
+  getEvent(page){
+    let url = 'events';
+    if(page)
+    {
+      url = 'events?_page='+page;
+    }
+    return this.http.get<any>(this.getEndpoint(url), {headers: this.getTokenHeader(), observe:"response"});
   }
 
   updateEvent(event : EventModel)

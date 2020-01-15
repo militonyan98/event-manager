@@ -1,12 +1,12 @@
 export class EventModel {
-    public name: String;
-    public description: String;
+    public name: string;
+    public description: string;
     public date: Date;
-    public eventType: Number;
-    public id : Number;
+    public eventType: number;
+    public id : number;
     constructor()
     {}
-    public getShortDescription(): String
+    public getShortDescription(): string
     {
         if(this.description.length<20){
             return this.description;
@@ -20,6 +20,6 @@ export class EventResponse {
 }
 
 export class EventType {
-    public value: Number;
-    public type: String;
+    public value: number;
+    public type: string;
 }

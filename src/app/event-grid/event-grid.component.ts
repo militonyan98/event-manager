@@ -24,7 +24,7 @@ import { trigger, transition, animate, style } from '@angular/animations';
 })
 export class EventGridComponent implements OnInit {
   public events: EventModel [];
-  public eventTypes : EventType [];
+  public eventTypes : Map<number,EventType>;
   public activeEvent : EventModel;
   public showDetails: boolean;
   public isAdmin: boolean = JSON.parse(window.sessionStorage.getItem("user")).isAdmin;
@@ -35,18 +35,28 @@ export class EventGridComponent implements OnInit {
     this.activeEvent = new EventModel();
     this.backend.getEventTypes()
     .subscribe(data=>{
-      this.eventTypes=data;
-      console.log(this.eventTypes);
-    })
-    this.backend.getEvent()
+      this.eventTypes = new Map<number,EventType>();
+      data.forEach(element => {
+        this.eventTypes.set(element.value,element);
+      });
+
+      this.backend.getEvent(false)
       .subscribe(data=>{
-        this.events=data;
+        this.events=data.body;
         console.log(this.events);
       },
       err=>{
         this.router.navigate(["/"]);
         console.log(err);
       })
+      console.log(this.eventTypes);
+    })
+   
+  }
+
+  getEventType(val){
+    //to battle some weird events where type is string
+    return this.eventTypes.get(Number.parseInt(val));
   }
 
   logOut(){
