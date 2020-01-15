@@ -1,0 +1,116 @@
+#page-content {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3_OyJuOy0KdeqGUotUybwZddY2VC0DWuipwW46XiK20v7CZM&s);
+    background-size: cover;
+}
+
+.event-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-items {
+    list-style: none;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding: 30px 30px;
+    border: solid 2px rgba(70, 33, 59, 0.7);
+    border-radius: 20px;
+    /* border-image-source: linear-gradient(45deg, rgb(187, 48, 124), rgb(146, 66, 250));
+    border-image-slice: 1; */
+    box-sizing: border-box;
+    /* flex: 0 1 calc(25% - 32px); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.45)
+}
+
+.list-item {
+    margin: 10px 10px;
+    padding: 10px 10px;
+    font-family: cursive;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.main-buttons {
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+#logOut-button {
+    margin: 15px 15px;
+    padding: 10px 10px;
+    font-family: cursive;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#admin-view-button {
+    margin: 15px 15px;
+    padding: 10px 10px;
+    font-family: cursive;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#details-button, #logOut-button, #admin-view-button {
+    border: 1.5px solid rgba(70, 33, 59, 0.7);
+    /* border-image-source: linear-gradient(45deg, rgb(187, 48, 124), rgb(146, 66, 250));
+    border-image-slice: 1; */
+    border-radius: 10px;
+    background: rgba(183, 220, 255, 0.6);
+}
+
+#details-button:hover {
+    font-size: 1.2em;
+    background: rgba(162, 195, 255, 0.7);
+}
+
+#logOut-button:hover {
+    font-size: 1.2em;
+    background: rgba(162, 195, 255, 0.7);
+}
+
+#admin-view-button:hover {
+    font-size: 1.2em;
+    background: rgba(162, 195, 255, 0.7);
+}
+
+#events-par {
+    font-family: cursive;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#hide-button {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    height: 50px;
+    width: 50px;
+    margin: 10px 10px;
+    font-family: cursive;
+    font-size: .9em;
+    font-weight: bold;
+    border: 1.5px solid rgba(70, 33, 59, 0.7);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#hide-button:hover {
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0.6);
+    height: 55px;
+    width: 55px;
+}

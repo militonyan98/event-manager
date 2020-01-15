@@ -1,0 +1,195 @@
+.page-content {
+  background: url(https://cdn140.picsart.com/293713438013201.jpg?r1024x1024);
+  background-color: rgb(255, 196, 235);
+  height: 100%;
+  background-size: cover;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-table{
+  display: flex;
+  justify-content: center;
+}
+
+.div-table {
+    display: table;
+    table-layout: fixed;               
+    background-color: rgba(255, 255, 255, 0.644);         
+    border: 2px solid rgb(0, 0, 0, 0.3);         
+    border-spacing: 5px;
+    border-radius: 20px;;
+    padding: 15px 15px;
+    height: 500px;
+  }
+  .div-table-row {
+    display: table-row;
+    text-align: center;
+    width: auto;
+    clear: both;
+  }
+
+  .columns {
+    border-radius: 10px;
+    padding: 40px 0;
+    margin: 15px auto;
+  }
+
+  .div-table-col-2 {
+    float: left;
+    display: table-column flex; 
+    justify-content: center;     
+    width: 20%;
+    overflow: hidden;
+    font-family: cursive;
+    font-size: 1em;
+    font-weight: bold;
+  }
+.div-table-col-3 {
+    float: left;
+    display: table-column;         
+    width: 33%;         
+    background-color: #ccc;  
+  }
+  .div-table-col-5 {
+    float: left;
+    display: table-column;         
+    width: 50%;         
+    background-color: #ccc;  
+  }
+
+.logOut-button, .user-view-button {
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgb(0, 0, 0, 0.35);
+    border-radius: 15px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    font-size: 1em;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.logOut-button:hover {
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.user-view-button:hover {
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.create-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.create-button {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  margin-bottom: 17px;
+  margin-top: 5px;
+  padding: 10px 10px;
+  font-size: 1em;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.create-button:hover {
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.edit-delete-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#edit-button, #delete-button {
+  padding: 7px;
+  font-size: .9em;
+  font-family: cursive;
+  font-weight: bold;
+  background-color: rgb(216, 195, 205, 0.4);
+  border-color: rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+#edit-button:hover {
+  font-size: 1em;
+}
+
+#delete-button:hover {
+  font-size: 1em;
+}
+
+/* event-create-div */
+.event-create-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.event-create-item {
+  margin: 5px 0;
+}
+
+.input {
+  padding: 20px 20px;
+  margin: 5px 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  border: solid rgba(128, 37, 64, 0.521);
+  font-family: cursive;
+  font-size: 1.2em;
+}
+
+::placeholder, select option:disabled {
+  color: rgba(0, 0, 0);
+}
+
+.save-cancel-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#save-button, #cancel-button {
+  margin: 10px 7px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: cursive;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+#save-button:hover {
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#cancel-button:hover {
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+p {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#description {
+  text-overflow: ellipsis;
+}

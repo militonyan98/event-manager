@@ -1,0 +1,88 @@
+.page-content {
+    background-image: url(https://ak7.picdn.net/shutterstock/videos/1019866207/thumb/1.jpg);
+    background-color: rgb(209, 120, 135);
+    background-size: cover;
+    height: 100vh;
+}
+
+.login-content {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    top: 20%;
+    left: 30%;
+    right: 50%;
+    bottom: 0;
+    margin-top: -30px;
+    background-color: rgba(252, 252, 252, 0.35);
+    /*border: 1px solid black;*/
+    border-radius: 70px;
+}
+
+.login-text {
+    margin-bottom: -170px;
+    padding-top: 100px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: 1.6em;
+}
+
+.login-attributes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+    text-align: center;
+}
+
+
+#email {
+    background-color: rgb(254, 247, 255);
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 30px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
+#password {
+    background-color: rgb(254, 247, 255);
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 30px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
+#submit {
+    background-color: rgb(204, 212, 247);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 43%;
+    margin-right: 43%;
+    padding: 8px 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+#submit:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #331e23;
+    background-color: rgb(179, 192, 247);
+}
+
+.input {
+    font-size: 18px;
+}
+
+.error-message {
+    color: rgb(235, 44, 133);
+    font-weight: bold;
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
+}

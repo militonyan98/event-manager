@@ -1,0 +1,22 @@
+<div class="page-content">
+        <div class="login-content">
+                <h1 class="login-text">LOG IN TO <br>EVENT MANAGER</h1>
+                <form class="login-attributes" (ngSubmit)="loginUser($event)" [formGroup]="registerForm">
+                        <div class="email">
+                                <input type="email" placeholder="Email" id="email" class="input" formControlName="email" (input)="changed()">
+                                <div *ngIf="submitted && formControls.email.errors">
+                                        <div class="error-message" *ngIf="formControls.email.errors.required">Email is required.</div>
+                                        <div class="error-message"  *ngIf="formControls.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                        </div>
+                        <div>
+                                <input type="password" placeholder="Password" id="password" class="input" formControlName="password" (input)="bigError = false">
+                                <div *ngIf="submitted && formControls.password.errors">
+                                        <div class="error-message" *ngIf="formControls.password.errors.required">Password is required</div>
+                                </div>
+                        </div>
+                        <div *ngIf="bigError">{{bigErrorMessage}}</div>
+                        <input id="submit" class="input" type="submit" value="Log in">
+                </form>
+        </div>
+</div>

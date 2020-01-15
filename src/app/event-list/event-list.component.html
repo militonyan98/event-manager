@@ -1,0 +1,82 @@
+<div class="page-content">
+        <div class="main-buttons" *ngIf="!editVisible && !createVisible">
+                <button class="user-view-button" (click)="userView()">User View</button>
+                <button class="logOut-button" (click)="logOut()">Log Out</button>
+        </div>
+        
+        <div class=create-button-div *ngIf="!editVisible && !createVisible">
+                <button class="create-button" (click)="createEvent()">Create Event</button>
+        </div>
+
+        <div *ngIf="this.countEvents!=0">
+                <div class="main-table">
+                        <div class="div-table" *ngIf="!editVisible && !deleteVisible && !createVisible && !loading && this.countEvents!==0">
+                                <div class="div-table-row"  *ngFor='let event of events'>
+                                        <div class="columns">
+                                                <div class="div-table-col-2">
+                                                        {{event.name}}
+                                                </div>
+                                                <div class="div-table-col-2" style="overflow: hidden">
+                                                        {{event.description}}
+                                                </div>
+                                                <div class="div-table-col-2">
+                                                        {{event.date}}
+                                                </div>
+                                                <div class="div-table-col-2">
+                                                        {{eventTypes[event.eventType-1].type}}
+                                                </div>
+                                                <div class="edit-delete-buttons">
+                                                        <button id="edit-button" (click) = "showEdit(event)">Edit</button>
+                                                        <button id="delete-button" (click)="deleteEvent(event)">Delete</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <div *ngIf="editVisible || createVisible">
+                <p *ngIf="editVisible">Edit Event</p>
+                <p *ngIf="createVisible">Create Event</p>
+                <div class="event-create-div">
+                        <div class="event-create-item">
+                                <input class="input" type="text" placeholder="Event name" id="name" name="name" #name="ngModel" [ngModel]="activeEvent.name" (ngModelChange)="activeEvent.name = $event" required minlength="3" maxlength="12"/>
+                                <div *ngIf="name?.invalid && (name.dirty || name.touched)">
+                                        <div *ngIf="name?.errors.required">Name is required.</div>
+                                        <div *ngIf="name?.errors.minlength">Name must be at least 3 characters.</div>
+                                        <div *ngIf="name?.errors.maxlength">Name can be at most 12 characters long.</div>
+                                </div>
+                        </div>
+
+                        <div class="event-create-item">
+                                <input class="input" type="text" placeholder="Event Description" id="description" name="description" #description="ngModel" [ngModel]="activeEvent.description" (ngModelChange)="activeEvent.description = $event" required minlength="30" maxlength="100"/>
+                                <div *ngIf="description?.invalid && (description.dirty || description.touched)">
+                                        <div *ngIf="description?.errors.required">Description is required.</div>
+                                        <div *ngIf="description?.errors.minlength">Description must be at least 30 characters.</div>
+                                        <div *ngIf="description?.errors.maxlength">Description can be at most 100 characters long.</div>
+                                </div>
+                        </div>
+
+                        <div class="event-create-item">
+                                <input class="input" type="datetime-local" placeholder="Event Date" id="date" name="date" #date="ngModel" [ngModel]="activeEvent.date" (ngModelChange)="activeEvent.date = $event" required/>
+                                <div *ngIf="date?.invalid && (date.dirty || date.touched)">
+                                        <div *ngIf="date?.errors.required">Please select a date for the event.</div>
+                                </div>
+                        </div>
+
+                        <div class="event-create-item">
+                                <select class="input" type="number" name="Event Type" #type="ngModel" [ngModel]="activeEvent.eventType" (change)="updateEventType($event)" required>
+                                <option value="" disabled selected hidden value="undefined">Event Type</option>
+                                <option *ngFor="let type of eventTypes" [ngValue]="type.value">{{type.type}}</option>
+                                </select>
+                                <div *ngIf="type?.invalid && (type.dirty || type.touched)">
+                                        <div *ngIf="type?.errors.required">Please select a type for the event.</div>
+                                </div>
+                        </div>
+                </div>
+                <div class="save-cancel-buttons">
+                                <button id="save-button" (click)="hideEdit(true)" [disabled]="type?.invalid || name?.invalid || description?.invalid || date?.invalid">Save</button>
+                                <button id="cancel-button" (click)="hideEdit(false)">Cancel</button>
+                </div>
+        </div>
+</div>
