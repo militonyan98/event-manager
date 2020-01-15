@@ -6,9 +6,11 @@
                 <button id="logOut-button" (click)="logOut()">Log Out</button>
         </div>
         <div class="main">
-                <div class="events">
+                <div class="events" [ngStyle]="{'width':this.showDetails? '70%' : '100%'}">
+                        <div id="events-par">
+                                <p>Events</p>
+                        </div>
                         <ul class="event-list">
-                                <p id="events-par">Events</p>
                                 <li class="list-items" *ngFor="let event of events">
                                         <div id="event-name" class="list-item">{{event.name}}</div>
                                         <div id="event-description" class="list-item">{{event.description | slice:0:10}}...</div>
@@ -19,8 +21,8 @@
                         </ul>
 
                         <div *ngIf="showDetails" class="current-event">
-                                <app-event-details [event]="activeEvent" [eventTypes]='this.eventTypes'></app-event-details>
-                                <button id="hide-button" (click)="hideEventDetails()">Hide</button>
+                                <app-event-details [event]="activeEvent" [eventTypes]='this.eventTypes' (hideClicked)="hideEventDetails()"></app-event-details>
+                                <!-- <button id="hide-button" (click)="hideEventDetails()">Hide</button> -->
                         </div> 
                 </div>
         </div>
