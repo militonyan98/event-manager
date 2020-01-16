@@ -64,6 +64,12 @@ export class BackendConnectService {
   }
 
   imageUpload(file, eventID){
-    return this.http.post(this.getEndpoint('image-upload/' + eventID),file,{headers:this.getTokenHeader()});
+    let formData = new FormData();
+    formData.append("image", file);
+    return this.http.post(this.getEndpoint('image-upload/' + eventID), formData, {headers:this.getTokenHeader()});
+  }
+
+  getImage(name){
+    return this.http.get(this.getEndpoint('image/' + name), {headers:this.getTokenHeader()});
   }
 }

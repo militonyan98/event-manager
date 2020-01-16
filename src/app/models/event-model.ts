@@ -4,6 +4,7 @@ export class EventModel {
     public date: Date;
     public eventType: number;
     public id : number;
+    public image: string;
     constructor()
     {}
     public getShortDescription(): string

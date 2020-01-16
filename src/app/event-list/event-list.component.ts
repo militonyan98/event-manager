@@ -66,6 +66,17 @@ export class EventListComponent implements OnInit {
       this.updatePageLimits(data.headers.get('Link'));
       this.events = data.body;
       this.countEvents = this.events.length;
+      this.events.forEach(element => {
+        if(element.image){
+          this.backend.getImage(element.image).subscribe((data)=>{
+            console.log(data)
+          },
+          (err)=>{
+            console.log(err.url)
+          });
+        }
+        
+      });
       console.log(this.events);
       this.loading = false;
     }, err => this.router.navigate(["/"]));
@@ -126,7 +137,7 @@ export class EventListComponent implements OnInit {
         .subscribe(data=>{
           console.log(data);
           
-          this.backend.imageUpload(this.selectedFile,data.id);
+          this.backend.imageUpload(this.selectedFile,data.id).subscribe((event)=>console.log(event));
           this.events.push(data);
         });
       }
@@ -134,7 +145,7 @@ export class EventListComponent implements OnInit {
         this.backend.updateEvent(this.activeEvent)
         .subscribe(data=>{
           
-          this.backend.imageUpload(this.selectedFile,data.id);
+          this.backend.imageUpload(this.selectedFile,data.id).subscribe((event)=>console.log(event));
           console.log(data);
 
         });
@@ -174,6 +185,7 @@ export class EventListComponent implements OnInit {
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0]
+    this.activeEvent.image = this.selectedFile.name;
   }
 
 }
