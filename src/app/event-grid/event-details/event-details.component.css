@@ -1,5 +1,6 @@
 :host {
     min-height: 100vh;
+    min-width: 220px;;
     display: flex;
     background: rgba(255, 221, 240, 0.4);
     color: rgba(0, 0, 0);
