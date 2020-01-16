@@ -1,14 +1,14 @@
 :host {
     min-height: 100vh;
     display: flex;
-    background: rgba(221, 236, 255, 0.65);
+    background: rgba(255, 221, 240, 0.4);
     color: rgba(0, 0, 0);
     position: fixed;
     left: auto;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 40.5%;
+    width: 36%;
     border: 1.5px solid rgba(70, 33, 59, 0.7);
     border-radius: 10px;
     overflow: hidden;
@@ -21,24 +21,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -30px;
     margin-bottom: 60px;
-    margin-left: -20px;
     margin-right: 80px;
     word-break: break-word;
     flex: 1 0 100%;
 }
 
 #details-par {
-  margin: 30px 10px 10px;
+  margin: 45px 10px 10px;
   padding: 10px 10px;
   text-align: center;
   font-family: cursive;
   font-weight: bold;
   font-size: 1.5em;
   color:rgb(0, 0, 0);
-  justify-content: center;
-  align-items: center;
   word-break: break-word;
 }
 
@@ -51,25 +47,24 @@
 }
 
 .event-attr {
-  padding: 10px 10px;
-  margin: 10px 0px;
+  margin: 7px 0px;
+  padding-bottom: 5px;
   font-family: cursive;
   font-weight: bold;
   font-size: 1.1em;
+  text-align: center;
 }
 
 #current-event-content {
     display: flex;
     flex-direction: column;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     margin: 10px 10px;
 }
 
 #img {
-  border-radius: 5px;
-  margin-top: -60px;
+  align-self: flex-end;
 }
 
 .desc-div {

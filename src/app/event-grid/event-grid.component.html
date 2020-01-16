@@ -6,15 +6,14 @@
                 <button id="logOut-button" (click)="logOut()">Log Out</button>
         </div>
         <div class="main">
-                <div class="events" [ngStyle]="{'width':this.showDetails? '55%' : '100%'}">
+                <div class="events" [ngStyle]="{'width':this.showDetails? '65%' : '100%'}">
                         <div id="events-par">
                                 <p>Events</p>
                         </div>
                         <ul class="event-list">
-                                <li class="list-items" *ngFor="let event of events" [ngStyle]="{'background-image': 'url('+eventImages.get(event.id)+')', 'background-size': 'cover'}">
+                                <li class="list-items" *ngFor="let event of events" [ngStyle]="{'background-image': 'url('+eventImages.get(event.id)+')', 'background-size': '100% 100%', 'background-repeat': 'no-repeat'}">
                                         <div class="overlay">
                                                 <div id="event-name" class="list-item">{{event.name}}</div>
-                                                <!-- <div id="event-description" class="list-item">{{event.description | slice:0:10}}...</div> -->
                                                 <div id="event-date" class="list-item">{{event.date}}</div>
                                                 <div id="event-type" class="list-item">{{getEventType(event.eventType).type}}</div>
                                                 <button id="details-button" class="list-item" (click)="showEventDetails(event)">Details</button>
@@ -24,7 +23,6 @@
 
                         <div *ngIf="showDetails" class="current-event">
                                 <app-event-details [event]="activeEvent" [eventTypes]='this.eventTypes' [eventImages]='this.eventImages' (hideClicked)="hideEventDetails()"></app-event-details>
-                                <!-- <button id="hide-button" (click)="hideEventDetails()">Hide</button> -->
                         </div> 
                 </div>
         </div>

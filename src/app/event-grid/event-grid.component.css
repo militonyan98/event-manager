@@ -11,29 +11,29 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .list-items {
     list-style: none;
     width: 350px;
     height: 350px;
+    min-width: 100px;
     overflow: hidden;
-    /* margin-bottom: 30px; */
-    /* padding: 30px 30px; */
     border: solid 2px rgba(70, 33, 59, 0.7);
     border-radius: 20px;
     /* border-image-source: linear-gradient(45deg, rgb(187, 48, 124), rgb(146, 66, 250));
     border-image-slice: 1; */
     box-sizing: border-box;
-    /* flex: 0 1 calc(25% - 32px); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-size: contain;
     /* background-color: rgba(255, 255, 255, 0.45); */
-    flex: 1 0 28%;
-    margin: 10px 10px;
+    flex: 0 0 28%;
+    margin: 35px 25px;
+    text-align: center;
 }
 
 .overlay {
@@ -103,30 +103,8 @@
     justify-content: center;
     align-items: center;
     font-family: cursive;
-    font-size: 2em;
+    font-size: 2.1em;
     font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 25px;
 }
-
-/* #hide-button {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: auto;
-    height: 50px;
-    width: 50px;
-    margin: 10px 10px;
-    font-family: cursive;
-    font-size: .9em;
-    font-weight: bold;
-    border: 1.5px solid rgba(70, 33, 59, 0.7);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-#hide-button:hover {
-    font-size: 1.1em;
-    background: rgba(255, 255, 255, 0.6);
-    height: 55px;
-    width: 55px;
-} */
