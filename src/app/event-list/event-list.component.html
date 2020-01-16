@@ -33,6 +33,7 @@
                                 </div>
                         </div>
                 </div>
+
                 <div class="pagination-buttons" *ngIf="!editVisible && !createVisible">
                         <button id="next-button" [disabled]="this.minPage === this.currentPage" (click)="prevPage()">Prev</button>
                         <button id="next-button" *ngFor="let page of this.pages" (click)="goToPage(page)" [disabled]="page === this.currentPage" >{{page}}</button>
@@ -42,55 +43,57 @@
         </div>
 
         <div *ngIf="editVisible || createVisible">
-                <p *ngIf="editVisible">Edit Event</p>
-                <p *ngIf="createVisible">Create Event</p>
-                <div class="event-create-div">
-                        <div class="event-create-item">
-                                <input class="input" type="text" placeholder="Event name" id="name" name="name" #name="ngModel" [ngModel]="activeEvent.name" (ngModelChange)="activeEvent.name = $event" required minlength="3" maxlength="12"/>
-                                <div *ngIf="name?.invalid && (name.dirty || name.touched)">
-                                        <div *ngIf="name?.errors.required">Name is required.</div>
-                                        <div *ngIf="name?.errors.minlength">Name must be at least 3 characters.</div>
-                                        <div *ngIf="name?.errors.maxlength">Name can be at most 12 characters long.</div>
+                <div id="create-edit-container">
+                        <p class="create-edit-par" *ngIf="editVisible">Edit Event</p>
+                        <p class="create-edit-par" *ngIf="createVisible">Create Event</p>
+                        <div class="event-create-div">
+                                <div class="event-create-item">
+                                        <input class="input" type="text" placeholder="Event name" id="name" name="name" #name="ngModel" [ngModel]="activeEvent.name" (ngModelChange)="activeEvent.name = $event" required minlength="3" maxlength="12"/>
+                                        <div *ngIf="name?.invalid && (name.dirty || name.touched)">
+                                                <div *ngIf="name?.errors.required">Name is required.</div>
+                                                <div *ngIf="name?.errors.minlength">Name must be at least 3 characters.</div>
+                                                <div *ngIf="name?.errors.maxlength">Name can be at most 12 characters long.</div>
+                                        </div>
                                 </div>
-                        </div>
 
-                        <div class="event-create-item">
-                                <input class="input" type="text" placeholder="Event Description" id="description" name="description" #description="ngModel" [ngModel]="activeEvent.description" (ngModelChange)="activeEvent.description = $event" required minlength="30" maxlength="100"/>
-                                <div *ngIf="description?.invalid && (description.dirty || description.touched)">
-                                        <div *ngIf="description?.errors.required">Description is required.</div>
-                                        <div *ngIf="description?.errors.minlength">Description must be at least 30 characters.</div>
-                                        <div *ngIf="description?.errors.maxlength">Description can be at most 100 characters long.</div>
+                                <div class="event-create-item">
+                                        <input class="input" type="text" placeholder="Event Description" id="description" name="description" #description="ngModel" [ngModel]="activeEvent.description" (ngModelChange)="activeEvent.description = $event" required minlength="30" maxlength="100"/>
+                                        <div *ngIf="description?.invalid && (description.dirty || description.touched)">
+                                                <div *ngIf="description?.errors.required">Description is required.</div>
+                                                <div *ngIf="description?.errors.minlength">Description must be at least 30 characters.</div>
+                                                <div *ngIf="description?.errors.maxlength">Description can be at most 100 characters long.</div>
+                                        </div>
                                 </div>
-                        </div>
 
-                        <div class="event-create-item">
-                                <input class="input" type="datetime-local" [min]="minDate" placeholder="Event Date" id="date" name="date" #date="ngModel" [ngModel]="activeEvent.date" (ngModelChange)="activeEvent.date = $event" required/>
-                                <div *ngIf="date?.invalid && (date.dirty || date.touched)">
-                                        <div *ngIf="date?.errors.required">Please select a date for the event.</div>
+                                <div class="event-create-item">
+                                        <input class="input" type="datetime-local" [min]="minDate" placeholder="Event Date" id="date" name="date" #date="ngModel" [ngModel]="activeEvent.date" (ngModelChange)="activeEvent.date = $event" required/>
+                                        <div *ngIf="date?.invalid && (date.dirty || date.touched)">
+                                                <div *ngIf="date?.errors.required">Please select a date for the event.</div>
+                                        </div>
                                 </div>
-                        </div>
 
-                        <div class="event-create-item">
-                                <select class="input" type="number" name="Event Type" #type="ngModel" [ngModel]="activeEvent.eventType" (change)="updateEventType($event)" required>
-                                <option value="" disabled selected hidden value="undefined">Event Type</option>
-                                <option *ngFor="let type of eventTypes" [ngValue]="type.value">{{type.type}}</option>
-                                </select>
-                                <div *ngIf="type?.invalid && (type.dirty || type.touched)">
-                                        <div *ngIf="type?.errors.required">Please select a type for the event.</div>
+                                <div class="event-create-item">
+                                        <select class="input" type="number" name="Event Type" #type="ngModel" [ngModel]="activeEvent.eventType" (change)="updateEventType($event)" required>
+                                        <option value="" disabled selected hidden value="undefined">Event Type</option>
+                                        <option *ngFor="let type of eventTypes" [ngValue]="type.value">{{type.type}}</option>
+                                        </select>
+                                        <div *ngIf="type?.invalid && (type.dirty || type.touched)">
+                                                <div *ngIf="type?.errors.required">Please select a type for the event.</div>
+                                        </div>
+                                </div>
+                                
+                                <div class="event-create-item">
+                                                <input
+                                                style="display: none"
+                                                type="file" (change)="onFileChanged($event)"
+                                                #fileInput>
+                                        <button id="image-button" class="input" (click)="fileInput.click()">Image</button>
                                 </div>
                         </div>
-                        
-                        <div class="event-create-item">
-                                        <input
-                                        style="display: none"
-                                        type="file" (change)="onFileChanged($event)"
-                                        #fileInput>
-                                      <button (click)="fileInput.click()">Select File</button>
+                        <div class="save-cancel-buttons">
+                                        <button id="save-button" (click)="hideEdit(true)" [disabled]="type?.invalid || name?.invalid || description?.invalid || date?.invalid">Save</button>
+                                        <button id="cancel-button" (click)="hideEdit(false)">Cancel</button>
                         </div>
-                </div>
-                <div class="save-cancel-buttons">
-                                <button id="save-button" (click)="hideEdit(true)" [disabled]="type?.invalid || name?.invalid || description?.invalid || date?.invalid">Save</button>
-                                <button id="cancel-button" (click)="hideEdit(false)">Cancel</button>
                 </div>
         </div>
 </div>

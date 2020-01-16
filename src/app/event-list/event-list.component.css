@@ -227,3 +227,25 @@ p {
   font-weight: bold;
   margin: 15px 10px 0;
 }
+
+.create-edit-par {
+  margin-top: 120px;
+  margin-bottom: 30px;
+}
+
+#create-edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-button {
+  padding: 10px 10px;
+}
+
+#image-button:hover {
+  font-size: 1.25em;
+  background-color: rgba(253, 247, 251, 0.9);
+  cursor: pointer;
+}
