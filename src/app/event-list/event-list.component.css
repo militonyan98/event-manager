@@ -1,7 +1,7 @@
 .page-content {
   background: url(https://cdn140.picsart.com/293713438013201.jpg?r1024x1024);
   background-color: rgb(255, 196, 235);
-  height: 100%;
+  width: 100%;
   background-size: cover;
 }
 
@@ -13,6 +13,7 @@
 .main-table{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .div-table {
@@ -20,10 +21,8 @@
     table-layout: fixed;               
     background-color: rgba(255, 255, 255, 0.644);         
     border: 2px solid rgb(0, 0, 0, 0.3);         
-    border-spacing: 5px;
-    border-radius: 20px;;
-    padding: 15px 15px;
-    height: 500px;
+    border-spacing: 10px;
+    border-radius: 20px;
   }
   .div-table-row {
     display: table-row;
@@ -35,7 +34,8 @@
   .columns {
     border-radius: 10px;
     padding: 40px 0;
-    margin: 15px auto;
+    margin: auto auto;
+    display: block;
   }
 
   .div-table-col-2 {
@@ -47,6 +47,8 @@
     font-family: cursive;
     font-size: 1em;
     font-weight: bold;
+    /* text-overflow: ellipsis; */
+    word-break: break-word;
   }
 .div-table-col-3 {
     float: left;
@@ -192,4 +194,34 @@ p {
 
 #description {
   text-overflow: ellipsis;
+}
+
+.pagination-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#next-button, #prev-button {
+    margin: 40px 10px 20px;
+    padding: 10px 10px;
+    font-size: 1.1em;
+    font-family: cursive;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+
+#next-button:hover, #prev-button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2em;
+}
+
+#current-page {
+  font-size: 1.3em;
+  font-family: cursive;
+  font-weight: bold;
+  margin: 15px 10px 0;
 }

@@ -7,7 +7,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 30%;
+    width: 40.5%;
     border: 1.5px solid rgba(70, 33, 59, 0.7);
     border-radius: 10px;
     overflow: hidden;
@@ -29,17 +29,13 @@
 }
 
 #details-par {
-  /* width: 200px;
-  height: 50px; */
-  margin: 10px 10px;
+  margin: 30px 10px 10px;
   padding: 10px 10px;
   text-align: center;
   font-family: cursive;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.5em;
   color:rgb(0, 0, 0);
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
   justify-content: center;
   align-items: center;
   word-break: break-word;
@@ -55,7 +51,7 @@
 
 .event-attr {
   padding: 10px 10px;
-  margin: 10px 10px;
+  margin: 10px 0px;
   font-family: cursive;
   font-weight: bold;
   font-size: 1.1em;
@@ -84,7 +80,7 @@
   width: 50px;
   margin: 10px 10px;
   font-family: cursive;
-  font-size: .8em;
+  font-size: 1em;
   font-weight: bold;
   border: 1.5px solid rgba(70, 33, 59, 0.7);
   border-radius: 10px;
@@ -92,7 +88,7 @@
 }
 
 #hide-button:hover {
-  font-size: .9em;
+  font-size: 1.1em;
   background: rgba(255, 255, 255, 0.6);
   height: 55px;
   width: 55px;

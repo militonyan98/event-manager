@@ -21,7 +21,7 @@ export class EventListComponent implements OnInit {
   public currentPage: number = 1;
   private minPage = 1;
   private maxPage = 1;
-
+  private selectedFile : File;
   constructor(private backend: BackendConnectService, private router: Router) { }
 
   ngOnInit() {
@@ -81,16 +81,28 @@ export class EventListComponent implements OnInit {
   {
     let parts = linkParams.split(',').reduce((acc, link) => {
       let match = link.match(/<(.*)>; rel="(\w*)"/)
-      let url = match[1]
-      let rel = match[2]
-      acc[rel] = url
-      return acc;
+      if(match){
+        let url = match[1]
+        let rel = match[2]
+        acc[rel] = url
+        return acc;
+      }
+      return undefined;
+     
    }, {})
+   if(parts){
     let first = parts['first'];
     let last = parts['last'];
     this.minPage = this.extractPage(first);
     this.maxPage = this.extractPage(last);
 
+   }
+   else{
+    this.minPage = 1;
+    this.maxPage = 1;
+   }
+    
+   
   }
 
   private extractPage(url)
@@ -113,6 +125,8 @@ export class EventListComponent implements OnInit {
         this.backend.createEvent(this.activeEvent)
         .subscribe(data=>{
           console.log(data);
+          
+          this.backend.imageUpload(this.selectedFile,data.id);
           this.events.push(data);
         });
       }
@@ -120,6 +134,7 @@ export class EventListComponent implements OnInit {
         this.backend.updateEvent(this.activeEvent)
         .subscribe(data=>{
           
+          this.backend.imageUpload(this.selectedFile,data.id);
           console.log(data);
 
         });
@@ -156,4 +171,9 @@ export class EventListComponent implements OnInit {
   public userView(){
     this.router.navigate(["/view-events"])
   }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
 }

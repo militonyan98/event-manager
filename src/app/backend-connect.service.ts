@@ -62,4 +62,8 @@ export class BackendConnectService {
     window.sessionStorage.removeItem('token');
     window.sessionStorage.removeItem('user');
   }
+
+  imageUpload(file, eventID){
+    return this.http.post(this.getEndpoint('image-upload/' + eventID),file,{headers:this.getTokenHeader()});
+  }
 }
