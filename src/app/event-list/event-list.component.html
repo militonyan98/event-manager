@@ -20,7 +20,7 @@
                                                         {{event.description}}
                                                 </div>
                                                 <div class="div-table-col-2">
-                                                        {{event.date}}
+                                                        {{this.getDateFormat(event.date)}}
                                                 </div>
                                                 <div class="div-table-col-2">
                                                         {{this.getEventType(event.eventType).type}}
@@ -35,7 +35,8 @@
                 </div>
                 <div class="pagination-buttons" *ngIf="!editVisible && !createVisible">
                         <button id="next-button" [disabled]="this.minPage === this.currentPage" (click)="prevPage()">Prev</button>
-                        <span id="current-page">{{this.currentPage}}</span>
+                        <button id="next-button" *ngFor="let page of this.pages" (click)="goToPage(page)" [disabled]="page === this.currentPage" >{{page}}</button>
+                        <!-- <span id="current-page">{{this.currentPage}}</span> -->
                         <button id="prev-button" [disabled]="this.maxPage === this.currentPage"  (click)="nextPage()">Next</button>
                 </div>
         </div>
@@ -63,7 +64,7 @@
                         </div>
 
                         <div class="event-create-item">
-                                <input class="input" type="datetime-local" placeholder="Event Date" id="date" name="date" #date="ngModel" [ngModel]="activeEvent.date" (ngModelChange)="activeEvent.date = $event" required/>
+                                <input class="input" type="datetime-local" [min]="minDate" placeholder="Event Date" id="date" name="date" #date="ngModel" [ngModel]="activeEvent.date" (ngModelChange)="activeEvent.date = $event" required/>
                                 <div *ngIf="date?.invalid && (date.dirty || date.touched)">
                                         <div *ngIf="date?.errors.required">Please select a date for the event.</div>
                                 </div>

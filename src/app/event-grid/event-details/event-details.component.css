@@ -1,6 +1,7 @@
 :host {
+    min-height: 100vh;
     display: flex;
-    background: rgba(173, 209, 255, 0.65);
+    background: rgba(221, 236, 255, 0.65);
     color: rgba(0, 0, 0);
     position: fixed;
     left: auto;
@@ -59,10 +60,16 @@
 
 #current-event-content {
     display: flex;
+    flex-direction: column;
     /* flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
     margin: 10px 10px;
+}
+
+#img {
+  border-radius: 5px;
+  margin-top: -60px;
 }
 
 .desc-div {

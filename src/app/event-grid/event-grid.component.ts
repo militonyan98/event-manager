@@ -25,14 +25,16 @@ import { trigger, transition, animate, style } from '@angular/animations';
 export class EventGridComponent implements OnInit {
   public events: EventModel [];
   public eventTypes : Map<number,EventType>;
+  public eventImages : Map<number,string>;
   public activeEvent : EventModel;
   public showDetails: boolean;
   public isAdmin: boolean = JSON.parse(window.sessionStorage.getItem("user")).isAdmin;
-
+  private defaultImage = "https://www.muralswallpaper.com/app/uploads/soft-pastel-pink-marble-room-820x532.jpg";
   constructor(private backend: BackendConnectService, private router: Router) { }
 
   ngOnInit() {
     this.activeEvent = new EventModel();
+    this.eventImages = new Map<number,string>();
     this.backend.getEventTypes()
     .subscribe(data=>{
       this.eventTypes = new Map<number,EventType>();
@@ -42,8 +44,10 @@ export class EventGridComponent implements OnInit {
 
       this.backend.getEvent(false)
       .subscribe(data=>{
+        
         this.events=data.body;
         console.log(this.events);
+        this.loadImages();
       },
       err=>{
         this.router.navigate(["/"]);
@@ -52,6 +56,23 @@ export class EventGridComponent implements OnInit {
       console.log(this.eventTypes);
     })
    
+  }
+
+  loadImages(){
+    
+    this.events.forEach(element => {
+      this.eventImages.set(element.id,this.defaultImage);
+      if(element.image){
+        this.backend.getImage(element.image).subscribe((data)=>{
+          
+        },
+        (err)=>{
+          if(err.status == 200)
+            this.eventImages.set(element.id,err.url);
+        });
+      }
+      
+    });
   }
 
   getEventType(val){

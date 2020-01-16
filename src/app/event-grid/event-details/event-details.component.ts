@@ -12,6 +12,7 @@ export class EventDetailsComponent implements OnInit {
   router : Router;
   @Input('event') event : EventModel;
   @Input('eventTypes') eventTypes: Map<number,EventType>;
+  @Input('eventImages') eventImages : Map<number,string>;
   @Output() hideClicked = new EventEmitter();
   constructor() { }
 
@@ -22,5 +23,9 @@ export class EventDetailsComponent implements OnInit {
     this.hideClicked.emit('hideClicked');
   }
   
+  getEventType(val){
+    //to battle some weird events where type is string
+    return this.eventTypes.get(Number.parseInt(val));
+  }
   
 }

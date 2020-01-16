@@ -13,9 +13,11 @@
                                         <div id="event-description" class="event-attr">{{event.description}}</div>
                                 </div>
                                 <div id="event-date" class="event-attr">{{event.date}}</div>
-                                <div id="event-type" class="event-attr">{{eventTypes.get(event.eventType).type}}</div>
+                                <div id="event-type" class="event-attr">{{getEventType(event.eventType).type}}</div>
                         </li>
-                
                 </ul>
+
         </div>
+        
+        <div id="img" [ngStyle]="{'background-image': 'url('+eventImages.get(event.id)+')', 'background-size': 'cover', 'background-repeat': 'no-repeat', 'height': '50%', 'width': '100%'}"></div>
 </div>

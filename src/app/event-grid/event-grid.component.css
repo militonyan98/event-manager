@@ -1,6 +1,8 @@
 #page-content {
+    width: 100%;
+    min-height: 100vh;
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3_OyJuOy0KdeqGUotUybwZddY2VC0DWuipwW46XiK20v7CZM&s);
-    background-size: cover;
+    background-size: 100% 100%;
 }
 
 .event-list{
@@ -28,9 +30,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.45);
+    background-size: contain;
+    /* background-color: rgba(255, 255, 255, 0.45); */
     flex: 1 0 28%;
     margin: 10px 10px;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.3), rgba(117, 19, 93, 0.3));
+    width: 100%;
+    height: 100%;
 }
 
 .list-item {

@@ -1,8 +1,10 @@
 .page-content {
-  background: url(https://cdn140.picsart.com/293713438013201.jpg?r1024x1024);
-  background-color: rgb(255, 196, 235);
   width: 100%;
-  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  background: url(https://cdn140.picsart.com/293713438013201.jpg?r1024x1024) no-repeat fixed;
+  background-color: rgb(255, 196, 235);
+  background-size: 100% 100%;
 }
 
 .main-buttons {
