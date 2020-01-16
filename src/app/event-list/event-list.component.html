@@ -1,44 +1,48 @@
 <div class="page-content">
-        <div class="main-buttons" *ngIf="!editVisible && !createVisible">
-                <button class="user-view-button" (click)="userView()">User View</button>
-                <button class="logOut-button" (click)="logOut()">Log Out</button>
-        </div>
-        
-        <div class=create-button-div *ngIf="!editVisible && !createVisible">
-                <button class="create-button" (click)="createEvent()">Create Event</button>
-        </div>
+        <div class="main-div">
+                <div class="main-buttons" *ngIf="!editVisible && !createVisible">
+                        <button class="user-view-button" (click)="userView()">User View</button>
+                        <button class="logOut-button" (click)="logOut()">Log Out</button>
+                </div>
+                
+                <div class=create-button-div *ngIf="!editVisible && !createVisible">
+                        <button class="create-button" (click)="createEvent()">Create Event</button>
+                </div>
 
-        <div id="main-table-parent" *ngIf="this.countEvents!=0">
-                <div class="main-table">
-                        <div class="div-table" *ngIf="!editVisible && !deleteVisible && !createVisible && !loading && this.countEvents!==0">
-                                <div class="div-table-row"  *ngFor='let event of events'>
-                                        <div class="columns">
-                                                <div class="div-table-col-2">
-                                                        {{event.name}}
-                                                </div>
-                                                <div class="div-table-col-2" style="overflow: hidden">
-                                                        {{event.description}}
-                                                </div>
-                                                <div class="div-table-col-2">
-                                                        {{this.getDateFormat(event.date)}}
-                                                </div>
-                                                <div class="div-table-col-2">
-                                                        {{this.getEventType(event.eventType).type}}
-                                                </div>
-                                                <div class="edit-delete-buttons">
-                                                        <button id="edit-button" (click) = "showEdit(event)">Edit</button>
-                                                        <button id="delete-button" (click)="deleteEvent(event)">Delete</button>
+                <div *ngIf="this.countEvents>0">
+                        <div class="main-table">
+                                <div class="div-table" *ngIf="!editVisible && !deleteVisible && !createVisible && !loading && this.countEvents>0">
+                                        <div class="div-table-row"  *ngFor='let event of events'>
+                                                <div class="columns">
+                                                        <div class="div-table-col-2">
+                                                                {{event.name}}
+                                                        </div>
+                                                        <div class="div-table-col-2" style="overflow: hidden">
+                                                                {{event.description}}
+                                                        </div>
+                                                        <div class="div-table-col-2">
+                                                                {{this.getDateFormat(event.date)}}
+                                                        </div>
+                                                        <div class="div-table-col-2">
+                                                                {{this.getEventType(event.eventType).type}}
+                                                        </div>
+                                                        <div class="edit-delete-buttons">
+                                                                <button id="edit-button" (click) = "showEdit(event)">Edit</button>
+                                                                <button id="delete-button" (click)="deleteEvent(event)">Delete</button>
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
                         </div>
-                </div>
 
-                <div class="pagination-buttons" *ngIf="!editVisible && !createVisible">
-                        <button id="next-button" [disabled]="this.minPage === this.currentPage" (click)="prevPage()">Prev</button>
-                        <button id="next-button" *ngFor="let page of this.pages" (click)="goToPage(page)" [disabled]="page === this.currentPage" >{{page}}</button>
-                        <!-- <span id="current-page">{{this.currentPage}}</span> -->
-                        <button id="prev-button" [disabled]="this.maxPage === this.currentPage"  (click)="nextPage()">Next</button>
+                </div>
+        </div>
+
+        <div class="pagination-footer">
+                <div *ngIf="!editVisible && !createVisible && this.countEvents>0">
+                                <button id="next-button" [disabled]="this.minPage === this.currentPage" (click)="prevPage()">Prev</button>
+                                <button id="next-button" *ngFor="let page of this.pages" (click)="goToPage(page)" [disabled]="page === this.currentPage" >{{page}}</button>
+                                <button id="prev-button" [disabled]="this.maxPage === this.currentPage"  (click)="nextPage()">Next</button>
                 </div>
         </div>
 
