@@ -1,8 +1,13 @@
 <div class="page-content">
         <div class="main-div">
-                <div class="main-buttons" *ngIf="!editVisible && !createVisible">
-                        <button class="user-view-button" (click)="userView()">User View</button>
-                        <button class="logOut-button" (click)="logOut()">Log Out</button>
+                <div class="info-header">
+                        <div id="username">
+                                {{this.user.name}} {{this.user.srName}}
+                        </div>
+                        <div class="main-buttons" *ngIf="!editVisible && !createVisible">
+                                <button class="user-view-button" (click)="userView()">User View</button>
+                                <button class="logOut-button" (click)="logOut()">Log Out</button>
+                        </div>
                 </div>
                 
                 <div class=create-button-div *ngIf="!editVisible && !createVisible">

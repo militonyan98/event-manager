@@ -12,7 +12,7 @@
                                 <div class="desc-div">
                                         <div id="event-description" class="event-attr">{{event.description}}</div>
                                 </div>
-                                <div id="event-date" class="event-attr">{{event.date}}</div>
+                                <div id="event-date" class="event-attr">{{this.getDateFormat(event.date)}}</div>
                                 <div id="event-type" class="event-attr">{{getEventType(event.eventType).type}}</div>
                         </li>
                 </ul>

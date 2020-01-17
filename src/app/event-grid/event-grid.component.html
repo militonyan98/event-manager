@@ -1,9 +1,14 @@
 <div id="page-content">
-        <div class="main-buttons">
-                <div *ngIf="this.isAdmin===true">
-                        <button id="admin-view-button" (click)="adminView()">Admin View</button>
+        <div class="info-header">
+                <div id="username">
+                        {{this.user.name}} {{this.user.srName}}
                 </div>
-                <button id="logOut-button" (click)="logOut()">Log Out</button>
+                <div *ngIf="!showDetails" class="main-buttons">
+                        <div *ngIf="this.isAdmin===true">
+                                <button id="admin-view-button" (click)="adminView()">Admin View</button>
+                        </div>
+                        <button id="logOut-button" (click)="logOut()">Log Out</button>
+                </div>
         </div>
         <div class="main">
                 <div class="events" [ngStyle]="{'width':this.showDetails? '65%' : '100%'}">
@@ -14,7 +19,7 @@
                                 <li class="list-items" *ngFor="let event of events" [ngStyle]="{'background-image': 'url('+eventImages.get(event.id)+')', 'background-size': '100% 100%', 'background-repeat': 'no-repeat'}">
                                         <div class="overlay">
                                                 <div id="event-name" class="list-item">{{event.name}}</div>
-                                                <div id="event-date" class="list-item">{{event.date}}</div>
+                                                <div id="event-date" class="list-item">{{this.getDateFormat(event.date)}}</div>
                                                 <div id="event-type" class="list-item">{{getEventType(event.eventType).type}}</div>
                                                 <button id="details-button" class="list-item" (click)="showEventDetails(event)">Details</button>
                                         </div>

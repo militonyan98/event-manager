@@ -4,6 +4,7 @@ import { EventModel, EventType} from '../models/event-model';
 import { Router } from '@angular/router';
 
 import { trigger, transition, animate, style } from '@angular/animations';
+import { LoginUser } from '../models/login-model';
 
 @Component({
   selector: 'app-event-grid',
@@ -30,9 +31,11 @@ export class EventGridComponent implements OnInit {
   public showDetails: boolean;
   public isAdmin: boolean = JSON.parse(window.sessionStorage.getItem("user")).isAdmin;
   private defaultImage = "https://www.muralswallpaper.com/app/uploads/soft-pastel-pink-marble-room-820x532.jpg";
+  private user : LoginUser;
   constructor(private backend: BackendConnectService, private router: Router) { }
 
   ngOnInit() {
+    this.user = JSON.parse(window.sessionStorage.getItem('user'));
     this.activeEvent = new EventModel();
     this.eventImages = new Map<number,string>();
     this.backend.getEventTypes()
@@ -96,5 +99,11 @@ export class EventGridComponent implements OnInit {
 
   adminView(){
     this.router.navigate(['/events']);
+  }
+
+  getDateFormat(date){
+    if(date.includes('T'))
+      return date.replace('T',' ');
+    return date;
   }
 }

@@ -5,6 +5,26 @@
     background-size: 100% 100%;
 }
 
+.info-header {
+    display: flex;
+    justify-content: row;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 30px;
+}
+
+#username {
+    align-self: center;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0, 0.35);
+    border-right: 1px solid black;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    font-size: 1.2em;
+    font-family: cursive;
+    font-weight: bold;
+  
+}
+
 .event-list{
     padding: 0;
     margin: 0;
@@ -34,6 +54,12 @@
     flex: 0 0 28%;
     margin: 35px 25px;
     text-align: center;
+}
+
+.list-items:hover{
+    box-shadow: inset 20px 20px 50px rgb(180, 108, 150);
+    transition: all 0.3s ease 0s;
+    transform: scale(1);
 }
 
 .overlay {

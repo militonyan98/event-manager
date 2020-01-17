@@ -27,5 +27,10 @@ export class EventDetailsComponent implements OnInit {
     //to battle some weird events where type is string
     return this.eventTypes.get(Number.parseInt(val));
   }
-  
+
+  getDateFormat(date){
+    if(date.includes('T'))
+      return date.replace('T',' ');
+    return date;
+  }
 }

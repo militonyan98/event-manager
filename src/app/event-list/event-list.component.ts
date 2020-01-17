@@ -15,6 +15,7 @@ import {
 import {
   getLocaleDateTimeFormat
 } from '@angular/common';
+import { LoginUser } from '../models/login-model';
 
 @Component({
   selector: 'app-event-list',
@@ -22,6 +23,7 @@ import {
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
+  public user: LoginUser;
   public events: EventModel[];
   public eventTypes: EventType[];
   public eventTypesMap: Map < number, EventType > ;
@@ -44,6 +46,7 @@ export class EventListComponent implements OnInit {
       this.router.navigate(['/error']);
       return;
     }
+    this.user = JSON.parse(window.sessionStorage.getItem('user'));
     this.loading = true;
     this.backend.getEventTypes().subscribe(data => {
       this.eventTypes = data;
